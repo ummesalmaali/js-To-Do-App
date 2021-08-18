@@ -58,6 +58,11 @@ form button:hover{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    -o-transition: all 1s ease;
 }
 .todo li{
     flex: 1;
@@ -72,5 +77,48 @@ form button:hover{
     font-size: 1rem;
 }
 .complete-btn{
-    background: rgb(14, 150, 14);
+    background: rgb(73, 204, 73);
+}
+.todo-item{
+    padding: 0rem 0.5rem;
+}
+.fa-trash,
+.fa-check{
+    pointer-events: none;
+}
+.completed{
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+.fall{
+    transform: translateY(8rem) rotateZ(20deg);
+   opacity: 0;
+}
+
+select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    outline: none;
+}
+
+.select{
+    margin: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+select{
+    color: #ff6f47;
+    width: 10rem;
+    cursor: pointer;
+}
+.select::after{
+    content: "";
+    position: absolute;
+    background: #ff6f47;
+    top: 0;
+    right: 0;
+    padding: 1rem;
+    pointer-events: none;
 }
