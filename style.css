@@ -110,15 +110,25 @@ select{
 }
 select{
     color: #ff6f47;
-    width: 10rem;
+    width: 12rem;
     cursor: pointer;
+    padding: 1rem;
 }
 .select::after{
-    content: "";
+    content: "\25BC";
     position: absolute;
     background: #ff6f47;
     top: 0;
     right: 0;
     padding: 1rem;
     pointer-events: none;
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+}
+.select:hover::after{
+    background: #fff;
+    color: #ff6f47;
 }

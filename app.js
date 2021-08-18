@@ -2,10 +2,12 @@
 const todoInput = document.querySelector('.todo-input');
 const todoButton = document.querySelector('.todo-button');
 const todoList = document.querySelector('.todo-list');
+const filterOption = document.querySelector('.filter-todo');
 
 // event listeners
 todoButton.addEventListener("click", addTodo);
 todoList.addEventListener("click",deleteCheck);
+filterOption.addEventListener("click", filterToDo);
 
 // functions
 function addTodo(event){
@@ -54,4 +56,39 @@ if(item.classList[0] === "complete-btn"){
     const todo = item.parentElement;
     todo.classList.toggle("completed");
 }
+}
+function filterToDo(e){
+const todos = todoList.childNodes
+todos.forEach(function(todo){
+switch(e.target.value){
+    case "all":
+        todo.style.display = 'flex';
+        break;
+        case "completed":
+            if(todo.classList.contains("completed")){
+                todo.style.display = 'flex';
+            }else{
+                todo.style.display = 'none';
+            }
+            break;
+            case "incompleted":
+                if(!todo.classList.contains("completed")){
+                    todo.style.display = 'flex';
+                }else{
+                    todo.style.display = 'none';
+                }
+}
+})
+}
+
+function saveLocalTodos(todo){
+    //checking wheather do i have already things there?
+    let todos;
+    if(localStorage.getItem("todos") === null){
+        todos = [];
+    }else{
+        todos  = JSON.parse(localStorage.getItem("todos"));
+    }
+    todos.push(todo);
+    localStorage.setItem("todos", JSON.stringify(todos));
 }
